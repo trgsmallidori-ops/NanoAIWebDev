@@ -49,9 +49,6 @@ main.page {
 .top-visual .scroll-image.top {
   height: 70vh;
   min-height: 480px;
-  background-size: cover;
-  background-position: center calc(50% + var(--parallax-offset, 0px));
-  background-attachment: fixed;
   border-radius: 0;
   position: relative;
 }
@@ -244,11 +241,17 @@ section {
   height: 64vh;
   border-radius: 0;
   overflow: hidden;
-  background-size: cover;
-  background-position: center calc(50% + var(--parallax-offset, 0px));
-  background-repeat: no-repeat;
-  background-attachment: fixed;
   box-shadow: none;
+}
+
+.scroll-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: translateY(var(--parallax-offset, 0px));
+  will-change: transform;
 }
 
 .form-shell {
@@ -359,8 +362,6 @@ footer {
   .top-visual .scroll-image.top {
     height: 64vh;
     min-height: 380px;
-    background-attachment: scroll;
-    background-position: center;
   }
 
   .overlay-header {
@@ -383,6 +384,5 @@ footer {
   .top-visual .scroll-image.top {
     height: 60vh;
     min-height: 340px;
-    background-position: center;
   }
 }

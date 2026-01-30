@@ -221,11 +221,13 @@ export default function HomePage() {
   return (
     <main className="page">
       <section className="top-visual">
-        <div
-          className="scroll-image top"
-          aria-hidden="true"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80')" }}
-        />
+        <div className="scroll-image top" aria-hidden="true">
+          <img
+            src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80"
+            alt=""
+            loading="lazy"
+          />
+        </div>
         <header className="overlay-header">
           <div className="logo-banner">
             <img src="/logo.png" alt="Spaxio logo" />
@@ -279,22 +281,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section
-        className="scroll-image"
-        aria-hidden="true"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80')" }}
-      />
+      <section className="scroll-image" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80"
+          alt=""
+          loading="lazy"
+        />
+      </section>
 
       <section id="mock">
         <h2>{t.mockTitle}</h2>
         <p className="lead">{t.mockLead}</p>
       </section>
 
-      <section
-        className="scroll-image"
-        aria-hidden="true"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80')" }}
-      />
+      <section className="scroll-image" aria-hidden="true">
+        <img
+          src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80"
+          alt=""
+          loading="lazy"
+        />
+      </section>
 
       <section id="process">
         <h2>{t.processTitle}</h2>
