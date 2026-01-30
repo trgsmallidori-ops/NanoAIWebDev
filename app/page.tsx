@@ -184,7 +184,7 @@ export default function HomePage() {
       items.forEach((el) => {
         const rect = el.getBoundingClientRect();
         const offset = rect.top - vh * 0.5;
-        el.style.setProperty("--parallax-offset", `${offset * -0.12}px`);
+        el.style.setProperty("--parallax-offset", `${offset * -0.2}px`);
       });
     };
     onScroll();
@@ -296,7 +296,7 @@ export default function HomePage() {
 
       <section className="scroll-image" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=2000&q=80"
+          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80"
           alt=""
           loading="lazy"
         />
