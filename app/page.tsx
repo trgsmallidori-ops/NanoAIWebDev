@@ -202,9 +202,8 @@ export default function HomePage() {
   return (
     <main className="page">
       <header>
-        <div className="brand">
+        <div className="logo-banner">
           <img src="/logo.png" alt="Spaxio logo" />
-          <span>Spaxio · Codex</span>
         </div>
         <div className="nav">
           <a href="#hero">{t.nav.hero}</a>
