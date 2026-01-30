@@ -201,34 +201,42 @@ export default function HomePage() {
 
   return (
     <main className="page">
-      <header>
-        <div className="logo-banner">
-          <img src="/logo.png" alt="Spaxio logo" />
+      <section className="top-visual">
+        <div
+          className="scroll-image top"
+          aria-hidden="true"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1527437934671-61474b530017?auto=format&fit=crop&w=2000&q=80')" }}
+        >
+          <header className="overlay-header">
+            <div className="logo-banner">
+              <img src="/logo.png" alt="Spaxio logo" />
+            </div>
+            <div className="nav">
+              <a href="#hero">{t.nav.hero}</a>
+              <a href="#process">{t.nav.process}</a>
+              <a href="#mock">{t.nav.mock}</a>
+              <a href="#quote">{t.nav.quote}</a>
+              <a href="#agent">{t.nav.agent}</a>
+              <button
+                className="button secondary"
+                style={{ padding: "10px 14px", borderRadius: 10 }}
+                onClick={() => setLang("en")}
+                aria-label="Switch to English"
+              >
+                EN
+              </button>
+              <button
+                className="button secondary"
+                style={{ padding: "10px 14px", borderRadius: 10 }}
+                onClick={() => setLang("fr")}
+                aria-label="Passer au français"
+              >
+                FR
+              </button>
+            </div>
+          </header>
         </div>
-        <div className="nav">
-          <a href="#hero">{t.nav.hero}</a>
-          <a href="#process">{t.nav.process}</a>
-          <a href="#mock">{t.nav.mock}</a>
-          <a href="#quote">{t.nav.quote}</a>
-          <a href="#agent">{t.nav.agent}</a>
-          <button
-            className="button secondary"
-            style={{ padding: "10px 14px", borderRadius: 10 }}
-            onClick={() => setLang("en")}
-            aria-label="Switch to English"
-          >
-            EN
-          </button>
-          <button
-            className="button secondary"
-            style={{ padding: "10px 14px", borderRadius: 10 }}
-            onClick={() => setLang("fr")}
-            aria-label="Passer au français"
-          >
-            FR
-          </button>
-        </div>
-      </header>
+      </section>
 
       <section className="hero" id="hero">
         <div className="badge">{t.badge}</div>
