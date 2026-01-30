@@ -65,7 +65,7 @@ const copy = {
     submitting: "Sending...",
     statusSuccess: "Sent. I will reply with a scoped price and a free mock link.",
     statusError: "Something went wrong. Try again in a moment.",
-    copyright: "© 2026 NanoAI Web Development. All rights reserved.",
+    copyright: "© 2026 Spaxio. All rights reserved.",
     nav: {
       hero: "Home",
       process: "Process",
@@ -142,7 +142,7 @@ const copy = {
     submitting: "Envoi...",
     statusSuccess: "Envoyé. Je répondrai avec un prix détaillé et le lien de maquette gratuite.",
     statusError: "Un problème est survenu. Réessayez dans un instant.",
-    copyright: "© 2026 NanoAI Web Development. Tous droits réservés.",
+    copyright: "© 2026 Spaxio. Tous droits réservés.",
     nav: {
       hero: "Accueil",
       process: "Méthode",
@@ -203,8 +203,8 @@ export default function HomePage() {
     <main className="page">
       <header>
         <div className="brand">
-          <img src="/logo.png" alt="NanoAI Web Development logo" />
-          <span>NanoAI Web Development · Codex</span>
+          <img src="/logo.png" alt="Spaxio logo" />
+          <span>Spaxio · Codex</span>
         </div>
         <div className="nav">
           <a href="#hero">{t.nav.hero}</a>
@@ -254,10 +254,14 @@ export default function HomePage() {
         </div>
       </section>
 
+      <section className="scroll-image" aria-hidden="true" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80')" }} />
+
       <section id="mock">
         <h2>{t.mockTitle}</h2>
         <p className="lead">{t.mockLead}</p>
       </section>
+
+      <section className="scroll-image" aria-hidden="true" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2000&q=80')" }} />
 
       <section id="process">
         <h2>{t.processTitle}</h2>

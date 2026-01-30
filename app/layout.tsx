@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import "./globals.css";
 import { Playfair_Display, Space_Grotesk } from "next/font/google";
 
@@ -6,9 +6,9 @@ const display = Playfair_Display({ subsets: ["latin"], weight: ["400", "600", "7
 const sans = Space_Grotesk({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
-  title: "NanoAI Web Development — Luxe-grade web builds at honest prices",
-  description: "Luxury-crafted websites at a fraction of typical agency cost. Get a quote in minutes and receive a free mock site.",
-  icons: { icon: "/favicon.ico" }
+  title: "Spaxio — Luxe-grade web builds at honest prices",
+  description: "Spaxio crafts luxury-inspired websites at a fraction of typical agency cost. Get a quote in minutes and receive a free mock site.",
+  icons: { icon: "/logo.png", shortcut: "/logo.png", apple: "/logo.png" }
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -18,3 +18,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
+
+
