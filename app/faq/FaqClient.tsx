@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useTheme } from "../useTheme";
 
 export type FaqItem = {
   question: string;
@@ -54,6 +55,8 @@ const faqsFr: FaqItem[] = [
 
 export default function FaqClient({ faqs }: { faqs: FaqItem[] }) {
   const [lang, setLang] = useState<Lang>("en");
+  const { isDark, toggleTheme } = useTheme();
+  const logoSrc = isDark ? "/darkmodelogo.png" : "/logo.png";
 
   const t = useMemo(() => {
     if (lang === "fr") {
@@ -80,7 +83,7 @@ export default function FaqClient({ faqs }: { faqs: FaqItem[] }) {
     <>
       <header className="overlay-header faq-header">
         <div className="logo-banner">
-          <img src="/logo.png" alt="Spaxio logo" />
+          <img src={logoSrc} alt="Spaxio logo" />
         </div>
         <div className="nav" aria-label="Language switcher">
           <button
@@ -98,6 +101,14 @@ export default function FaqClient({ faqs }: { faqs: FaqItem[] }) {
             aria-pressed={lang === "fr"}
           >
             FR
+          </button>
+          <button
+            className="button secondary"
+            style={{ padding: "10px 14px", borderRadius: 10 }}
+            onClick={toggleTheme}
+            aria-pressed={isDark}
+          >
+            {lang === "fr" ? (isDark ? "Mode clair" : "Mode sombre") : isDark ? "Light mode" : "Dark mode"}
           </button>
         </div>
       </header>

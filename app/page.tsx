@@ -1,6 +1,7 @@
 ﻿"use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import { useTheme } from "./useTheme";
 
 type Lang = "en" | "fr";
 
@@ -59,7 +60,7 @@ const copy = {
       email: "you@brand.com",
       notes: "Goals, pages, references, features to include..."
     },
-    budgetOptions: ["Under $1,500", "$1,500 – $3,000", "$3,000 – $6,000", "Above $6,000"],
+    budgetOptions: ["$500 – $1,500", "$1,500 – $3,000", "$3,000 – $6,000", "Above $6,000"],
     projectOptions: ["Marketing site", "Ecommerce", "Web app", "Landing page sprint", "Other"],
     submit: "Send quote request",
     submitting: "Sending...",
@@ -138,7 +139,7 @@ const copy = {
       email: "vous@marque.com",
       notes: "Objectifs, pages, références, fonctionnalités à inclure..."
     },
-    budgetOptions: ["Moins de 1 500 $", "1 500 $ – 3 000 $", "3 000 $ – 6 000 $", "Plus de 6 000 $"],
+    budgetOptions: ["500 $ – 1 500 $", "1 500 $ – 3 000 $", "3 000 $ – 6 000 $", "Plus de 6 000 $"],
     projectOptions: ["Site marketing", "Commerce en ligne", "Application web", "Sprint page d'atterrissage", "Autre"],
     submit: "Envoyer la demande",
     submitting: "Envoi...",
@@ -207,6 +208,8 @@ export default function HomePage() {
   const [status, setStatus] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { isDark, toggleTheme } = useTheme();
+  const logoSrc = isDark ? "/darkmodelogo.png" : "/logo.png";
 
   const t = useMemo(() => copy[lang], [lang]);
 
@@ -314,7 +317,7 @@ export default function HomePage() {
         </div>
         <header className="overlay-header">
           <div className="logo-banner">
-            <img src="/logo.png" alt="Spaxio logo" />
+            <img src={logoSrc} alt="Spaxio logo" />
           </div>
           <button
             className="nav-toggle"
@@ -355,6 +358,17 @@ export default function HomePage() {
               aria-label="Passer au français"
             >
               FR
+            </button>
+            <button
+              className="button secondary"
+              style={{ padding: "10px 14px", borderRadius: 10 }}
+              onClick={() => {
+                toggleTheme();
+                setMenuOpen(false);
+              }}
+              aria-pressed={isDark}
+            >
+              {lang === "en" ? (isDark ? "Light mode" : "Dark mode") : isDark ? "Mode clair" : "Mode sombre"}
             </button>
           </div>
         </header>
