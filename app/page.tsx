@@ -210,6 +210,12 @@ export default function HomePage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
   const logoSrc = isDark ? "/darkmodelogo.png" : "/logo.png";
+  const heroVideos = [
+    "/2887463-hd_1920_1080_25fps.mp4",
+    "/5495898-hd_1920_1080_30fps.mp4",
+    "/5495845-hd_1920_1080_30fps.mp4"
+  ];
+  const [heroVideoIndex, setHeroVideoIndex] = useState(0);
 
   const t = useMemo(() => copy[lang], [lang]);
 
@@ -279,6 +285,15 @@ export default function HomePage() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+    const id = window.setInterval(() => {
+      setHeroVideoIndex((prev) => (prev + 1) % heroVideos.length);
+    }, 6000);
+    return () => window.clearInterval(id);
+  }, [heroVideos.length]);
+
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setLoading(true);
@@ -309,11 +324,18 @@ export default function HomePage() {
       />
       <section className="top-visual">
         <div className="scroll-image top" aria-hidden="true">
-          <img
-            src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=2400&q=80"
-            alt="Designer crafting a premium website for a modern brand"
-            loading="lazy"
-          />
+          {heroVideos.map((src, idx) => (
+            <video
+              key={src}
+              className={`hero-video ${idx === heroVideoIndex ? "active" : ""}`}
+              src={src}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+            />
+          ))}
         </div>
         <header className="overlay-header">
           <div className="logo-banner">
@@ -403,7 +425,7 @@ export default function HomePage() {
 
       <section className="scroll-image" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=2000&q=80"
+          src="/pexels-hitarth-jadhav-57415-220357.jpg"
           alt="Team collaborating on a high-end digital experience"
           loading="lazy"
         />
@@ -416,7 +438,7 @@ export default function HomePage() {
 
       <section className="scroll-image" aria-hidden="true">
         <img
-          src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=2000&q=80"
+          src="/pexels-pixabay-37347.jpg"
           alt="Luxury-inspired workspace for digital product strategy"
           loading="lazy"
         />
